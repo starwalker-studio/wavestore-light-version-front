@@ -1,0 +1,5 @@
+@use "main-constants" as const;
+
+:root {
+  --main-font-family: #{const.$main-font-family};
+}
