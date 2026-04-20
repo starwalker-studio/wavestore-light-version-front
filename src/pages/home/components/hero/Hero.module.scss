@@ -1,0 +1,49 @@
+@use "/src/scss/layout/" as *;
+@use "/src/scss/utils/" as *;
+
+.hero_section {
+  @include section;
+}
+
+.hero_container {
+  @include container;
+}
+
+.hero_wrapper {
+  @include wrapper;
+}
+
+.hero_flex {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.offer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+  img {
+    width: 100%;
+    margin: 0 0 12px;
+    border-radius: 0 0 10px 10px;
+  }
+  .promo_grid {
+    width: 100%;
+    display: grid;
+    gap: 1.4ex;
+    grid-template-columns: repeat(4, 1fr);
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+}
