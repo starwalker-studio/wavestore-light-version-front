@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { WavestoreProduct } from "../api/products/product.interface";
 
 export const useMenu = () => {
   const [checked, setChecked] = useState<number[]>([]);
@@ -14,19 +15,19 @@ export const useMenu = () => {
 
     return formatter.formatToParts(Number(value));
   };
-  //   const setProductDetailLink = (
-  //     category: string,
-  //     item: PRODUCT,
-  //     product: string,
-  //   ) => {
-  //     return `/shop/details/${product}/${category}/${item.model.replace(/ /g, "-")}/${item.item_ID}`;
-  //   };
+  const setProductDetailLink = (
+    category: string,
+    item: WavestoreProduct,
+    product: string,
+  ) => {
+    return `/shop/detail/${product}/${category}/${item.item_ID}`;
+  };
 
   return {
     formatPriceParts,
     checked,
     handleToggle,
     setChecked,
-    // setProductDetailLink,
+    setProductDetailLink,
   };
 };

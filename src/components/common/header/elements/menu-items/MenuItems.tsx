@@ -1,9 +1,12 @@
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
+import { useCartStore } from "../../../../../api/store/cart.store";
 import style from "./MenuItems.module.scss";
 
 export const MenuItems = () => {
+  const items = useCartStore((state) => state.items);
+  const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
   return (
     <>
       <div className={style.menu_item_phone}>
@@ -25,10 +28,16 @@ export const MenuItems = () => {
       </div>
       <div className={style.menu_item}>
         <div className={style.menu_item_container}>
-          <NavLink to={"/account"}></NavLink>
-          <span className={style.icon_cart}>
-            <FontAwesomeIcon icon={faCartShopping} />
-          </span>
+          <NavLink to={"/shop/cart"}>
+            <span className={style.icon_cart}>
+              <FontAwesomeIcon icon={faCartShopping} />
+              {totalItems > 0 && (
+                <span className={style.cart_badge}>
+                  {totalItems > 99 ? "99+" : totalItems}
+                </span>
+              )}
+            </span>
+          </NavLink>
         </div>
       </div>
     </>
