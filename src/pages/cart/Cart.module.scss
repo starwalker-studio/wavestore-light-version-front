@@ -14,21 +14,23 @@
 .cart_wrapper {
   @include wrapper;
   justify-content: center;
+  flex-direction: column;
+  padding: 0 4rem;
 }
 
 .cart_row {
   display: grid;
-  grid-template-columns: 840px 380px;
+  grid-template-columns: 1fr 360px;
   gap: 2rem;
   align-items: start;
-  padding: 22px;
+  padding: 12px 0;
+  margin: 20px 0;
 }
 
 .cart_items_card {
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  gap: 10ex;
   .cart_items_header {
     border-radius: 15px 15px 0 0;
     background-color: var(--main-color-primary);
@@ -60,9 +62,9 @@
       text-align: center;
       margin-right: 20px;
       p {
-        font-size: 1ex;
+        font-size: 0.75rem;
         span {
-          font-size: 2.3ex;
+          font-size: 0.875rem;
           font-weight: 700;
         }
       }
@@ -86,7 +88,7 @@
       .cart_item_quantity_buttons {
         display: flex;
         flex-direction: row;
-        gap: 1.4ex;
+        gap: 0.875rem;
         border: solid 1px #d8d7d7;
         align-items: center;
         span {
@@ -123,10 +125,11 @@
 }
 
 .cart_total_card {
-  position: sticky; // 👈 se queda fijo al scrollear
+  position: sticky;
   top: 1rem;
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
   border: solid 2px #575555;
   background-color: #fff;
   border-radius: 15px;
@@ -145,10 +148,19 @@
     border-top: solid 1px #d8d7d7;
     padding: 22px 0;
     button {
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.12rem;
+      font-weight: 600;
       padding: 12px;
       border-radius: 12px;
       border: none;
-      background-color: #ffe600;
+      background-color: #4f46e5;
+      transition: 0.3s ease;
+      &:hover {
+        color: #fff;
+        background-color: #3a35a1;
+      }
     }
   }
 }
@@ -179,6 +191,45 @@
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+}
+
+.payment_card {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: .8fr .89fr;
+  align-items: center;
+  border-radius: 12px;
+  background: rgba(110, 109, 109, 0.13);
+  overflow: hidden;
+  // @include mobile {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+  img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+    // @include mobile {
+    //   height: 300px;
+    // }
+  }
+  .payment_text {
+    padding: 0 2rem;
+
+    h2 {
+      font-size: 1.245rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
     }
   }
 }

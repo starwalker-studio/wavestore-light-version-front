@@ -1,13 +1,16 @@
 import { faCartShopping, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useCartStore } from "../../api/store/cart.store";
 import { useMenu } from "../../hooks/useMenu";
 import style from "./Cart.module.scss";
+import { CheckoutModal } from "./modal/CheckoutModal";
 export const Cart = () => {
   const { items, getTotalItems, getTotal, updateQuantity, removeFromCart } =
     useCartStore();
   const { formatPriceParts } = useMenu();
+  const [checkOut, setCheckOut] = useState<boolean>(false);
 
   if (items.length === 0) {
     return (
@@ -30,6 +33,15 @@ export const Cart = () => {
     <div className={style.cart_section}>
       <div className={style.cart_container}>
         <div className={style.cart_wrapper}>
+          <div className={style.payment_card}>
+            <img src="/img/payment/payment-card-2.jpg" alt="" />
+            <div className={style.payment_text}>
+              <h2>
+                Pay your way. We accept credit cards, debit cards, and more
+              </h2>
+              <p>checkout is always fast and secure.</p>
+            </div>
+          </div>
           <div className={style.cart_row}>
             <div className={style.cart_items_card}>
               <div className={style.cart_items_header}>
@@ -111,12 +123,15 @@ export const Cart = () => {
                 <p>Free 🎉</p>
               </div>
               <div className={style.cart_pay_buttons}>
-                <button>Mercado Pago</button>
+                <button onClick={() => setCheckOut(true)}>
+                  Pay with Stripe
+                </button>
               </div>
             </div>
-          </div>
+          </div>          
         </div>
       </div>
+      <CheckoutModal isOpen={checkOut} onClose={() => setCheckOut(false)} />
     </div>
   );
 };
