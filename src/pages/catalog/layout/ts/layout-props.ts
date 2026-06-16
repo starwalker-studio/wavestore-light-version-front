@@ -10,6 +10,8 @@ export type MenuProps = {
   MenuHandler: JSX.Element;
   children: JSX.Element;
   title: string;
+  loadingBrands: boolean;
+  loadingPriceRange: boolean;
 };
 
 export type BrandSectionProps = {
@@ -49,6 +51,7 @@ export type DisplayProductsProps = {
   onPageChange: (page?: number) => void;
   category: string;
   product: string;
+  loadingProducts: boolean;
 };
 
 export type PaginatorProps = {

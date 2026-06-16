@@ -1,5 +1,6 @@
 @use "/src/scss/layout/" as *;
-
+@use "/src/scss/utils/" as *;
+ 
 .product_section {
   @include section;
 }
@@ -16,7 +17,6 @@
     width: 100%;
     padding-left: 25px;
     padding-right: 25px;
-    // display: flex;
     color: #2e2d2b;
 }
 
@@ -52,11 +52,25 @@
 
 .product_grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 750px 1fr;
     gap: 5ex;
     justify-items: center;
-    // flex-wrap: wrap;
     margin-bottom: 1rem;
     padding: 0;
     list-style: none;
+    @include mobile {
+        display: flex;
+        flex-direction: column;        
+    }
+    @include tablet {
+        display: flex;
+        flex-direction: column;        
+    }
+}
+
+.loading_prod_spinner {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

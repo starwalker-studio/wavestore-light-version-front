@@ -1,4 +1,4 @@
-import type { PaginatorProps } from "../../ts/props";
+import type { PaginatorProps } from "../../ts/layout-props";
 import style from "./Paginator.module.scss";
 
 export const Paginator = ({

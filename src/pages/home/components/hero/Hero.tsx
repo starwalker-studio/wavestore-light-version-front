@@ -1,25 +1,26 @@
+import { Button } from "../../../../components/ui/button/Button";
 import style from "./Hero.module.scss";
 
 export const Hero = () => {
   return (
+    <>
     <section className={style.hero_section}>
+      <div className={style.overlay} />
       <div className={style.hero_container}>
         <div className={style.hero_wrapper}>
-          <div className={style.hero_flex}>
-            <div className={style.offer}>
-              <img src="/img/hero/guitar-offer.png" alt="" />
-              <div className={style.promo_grid}>
+          <div className={style.hero_content}>
+            <div className={style.offer_header}>
+              <h1>SALE 40%</h1>
+            </div>
+            <p>Limited time offer on selected gear</p>
+            <div className={style.sub_header}>
+              <p>Your Next Favorite Instrument Starts Here</p>
+              <div className={style.flex_button}>
                 <div>
-                  <img src="/img/hero/promo/financing.png" alt="" />
+                  <Button label="Shop Now →" />
                 </div>
                 <div>
-                  <img src="/img/hero/promo/effects-promo.png" alt="" />
-                </div>
-                <div>
-                  <img src="/img/hero/promo/guitar-promo.png" alt="" />
-                </div>
-                <div>
-                  <img src="/img/hero/promo/monitor-promo.png" alt="" />
+                  <span>Top brands. Unbeatable prices</span>
                 </div>
               </div>
             </div>
@@ -27,5 +28,10 @@ export const Hero = () => {
         </div>
       </div>
     </section>
+    <div className={style.financing_banner}>
+      <span>Check out the latest guitars, basses & drums.</span>
+      <p>Learn more</p>
+    </div>
+    </>
   );
 };

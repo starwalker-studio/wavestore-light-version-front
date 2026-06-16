@@ -1,4 +1,4 @@
-import type { MenuHandlerProps } from "../ts/props"
+import type { MenuHandlerProps } from "../ts/layout-props"
 import { BrandMenu } from "./actions/brands/BrandMenu"
 import { InStockMenu } from "./actions/in-stock/InStockMenu"
 import { CategoryLinkMenu } from "./actions/links/CategoryLinkMenu"

@@ -1,26 +1,32 @@
+@use "/src/scss/utils/" as *;
+
 .product_media {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
+  padding: 2.5ex;
 }
 
 .product_image_col {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  // padding: 2rem;
 
   img {
     max-height: 600px;
     max-width: 600px;
     margin: 0 auto;
+    @include mobile {
+      width: 300px;
+    }
   }
 }
 
 .row_items {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1.6rem;
   padding: 2rem;
 }
 
@@ -31,7 +37,6 @@
     opacity: 0.5;
     max-height: 55px;
     max-width: 55px;
-    margin: 0 4px;
     cursor: pointer;
     transition: opacity 0.8s ease, border 0.8s ease;
 

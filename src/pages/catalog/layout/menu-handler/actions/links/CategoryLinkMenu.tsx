@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import type { CategoryLinkMenuProps } from "../../../ts/props";
+import type { CategoryLinkMenuProps } from "../../../ts/layout-props";
 import style from "./CategoryLinkMenu.module.scss";
 
 export const CategoryLinkMenu = ({
@@ -11,9 +11,9 @@ export const CategoryLinkMenu = ({
         <div className={style.section_title}>
           <h4>Explore more</h4>
         </div>
-        {PRODUCT_CATEGORY.map(({ id, name }) => (
+        {PRODUCT_CATEGORY.map(({ id, name, slug }) => (
           <div className={style.link_category} key={id}>
-            <NavLink className={style.link} to={"/"}>
+            <NavLink className={style.link} to={`/shop/${slug}`}>
               {name}
             </NavLink>
           </div>

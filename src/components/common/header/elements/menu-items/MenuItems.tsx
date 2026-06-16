@@ -28,7 +28,7 @@ export const MenuItems = () => {
       </div>
       <div className={style.menu_item}>
         <div className={style.menu_item_container}>
-          <NavLink to={"/shop/cart"}>
+          <NavLink to={"/user/cart"}>
             <span className={style.icon_cart}>
               <FontAwesomeIcon icon={faCartShopping} />
               {totalItems > 0 && (

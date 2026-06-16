@@ -1,7 +1,14 @@
-import type { MenuProps } from '../ts/props';
-import style from './Menu.module.scss';
+import { Spinner } from "../../../../components/ui/spinner/Spinner";
+import type { MenuProps } from "../ts/layout-props";
+import style from "./Menu.module.scss";
 
-export const Menu = ({ MenuHandler, children, title }: MenuProps) => {
+export const Menu = ({
+  MenuHandler,
+  children,
+  title,
+  loadingBrands,
+  loadingPriceRange,
+}: MenuProps) => {
   return (
     <>
       <div className={style.item_page}>
@@ -13,7 +20,9 @@ export const Menu = ({ MenuHandler, children, title }: MenuProps) => {
             <div className={style.catalog_title}>
               <p>Refine Your Search</p>
             </div>
-            <div>{MenuHandler}</div>
+            <div>
+              {loadingBrands && loadingPriceRange ? <Spinner /> : MenuHandler}
+            </div>
           </div>
           <div>{children}</div>
         </div>

@@ -65,9 +65,16 @@
           display: block;
           mix-blend-mode: multiply;
         }
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
 
         .item_detail {
           @include item_card_style;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
           h3 {
             font-size: 1rem;
@@ -84,4 +91,10 @@
       }
     }
   }
+}
+
+.button_add_cart {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 20px;
 }

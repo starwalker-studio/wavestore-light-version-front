@@ -7,14 +7,7 @@ export const useMenu = () => {
     checked.includes(value)
       ? checked.filter((v) => v !== value)
       : [...checked, value];
-  const formatPriceParts = (value: string | number) => {
-    const formatter = new Intl.NumberFormat("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
-
-    return formatter.formatToParts(Number(value));
-  };
+  
   const setProductDetailLink = (
     category: string,
     item: WavestoreProduct,
@@ -24,7 +17,6 @@ export const useMenu = () => {
   };
 
   return {
-    formatPriceParts,
     checked,
     handleToggle,
     setChecked,

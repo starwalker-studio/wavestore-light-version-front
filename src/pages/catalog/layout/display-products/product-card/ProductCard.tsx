@@ -1,10 +1,16 @@
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { useCartStore } from "../../../../../api/store/cart.store";
+import { Button } from "../../../../../components/ui/button/Button";
+import { PriceFormat } from "../../../../../components/ui/price-format/PriceFormat";
 import { useMenu } from "../../../../../hooks/useMenu";
-import type { ProductCardProps } from "../../ts/props";
+import type { ProductCardProps } from "../../ts/layout-props";
 import style from "./ProductCard.module.scss";
 
 export const ProductCard = ({ list, category, product }: ProductCardProps) => {
-  const { formatPriceParts, setProductDetailLink } = useMenu();
+  const { setProductDetailLink } = useMenu();
+  const { addToCart } = useCartStore();
   return (
     <>
       {list.map((item) => (
@@ -12,43 +18,36 @@ export const ProductCard = ({ list, category, product }: ProductCardProps) => {
           <Link to={setProductDetailLink(category, item, product)}>
             <div className={style.card}>
               <img
-                src={item.img}
+                src={`${item?.img}`}
                 className={style.card_img}
                 alt="product"
                 sizes="(min-width: 1440px) 215px, 140px"
               />
             </div>
+            {item.in_stock ? (
+              <div className={style.product_avail}>
+                <strong className={style.avail_summary}>
+                  <span>
+                    <FontAwesomeIcon icon={faCheck} size="1x" />
+                  </span>
+                  In Stock!
+                </strong>
+              </div>
+            ) : (
+              <div className={style.product_avail}>
+                <strong className={style.avail_not_stock}>Not In Stock!</strong>
+              </div>
+            )}
             <div className={style.info}>
               <h2 className={style.model}>{item.model}</h2>
               <em>
-                <div className={style.final_row}>
-                  <div>
-                    <strong className={style.amount}>
-                      <span className={style.currency}>$</span>
-                      {formatPriceParts(item.price).map((part, index) => {
-                        if (part.type === "currency") return null;
-                        if (part.type === "integer" || part.type === "group") {
-                          return <span key={index}>{part.value}</span>;
-                        }
-                        if (
-                          part.type === "decimal" ||
-                          part.type === "fraction"
-                        ) {
-                          return (
-                            <span key={index} className={style.decimal}>
-                              {part.value}
-                            </span>
-                          );
-                        }
-                        return null;
-                      })}
-                    </strong>
-                  </div>
-                </div>
+                <PriceFormat price={item.price} />
               </em>
-              <span className={style.discount}>{item.description}</span>
             </div>
           </Link>
+          <div className={style.add_cart_button}>
+            <Button label="Add to Cart" onClick={() => addToCart(item)} />
+          </div>
         </div>
       ))}
     </>

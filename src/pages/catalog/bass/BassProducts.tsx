@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 import { useProductStore } from "../../../api/store/product.store";
 import { useMenu } from "../../../hooks/useMenu";
-import { DisplayProducts } from "../layout/display-products/DisplayProducts";
-import { MenuHandler } from "../layout/menu-handler/MenuHandler";
-import { Menu } from "../layout/menu/Menu";
 import { PRODUCT_ENV } from "../layout/ts/env";
+import { Products } from "../utils/Products";
 
 export const BassProducts = () => {
   const {
     products,
-    // loadingBrands,
-    // loadingPriceRange,
-    // loadingProducts,
+    loadingBrands,
+    loadingPriceRange,
+    loadingProducts,
     fetchProducts,
     fetchProductBrands,
     fetchProductPriceRange,
@@ -27,6 +25,10 @@ export const BassProducts = () => {
   const [mayor, setMayor] = useState(0);
   const [minor, setMinor] = useState(0);
   const [inStock, setInStock] = useState<boolean>(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, []);
 
   useEffect(() => {
     fetchProductBrands(2);
@@ -57,32 +59,26 @@ export const BassProducts = () => {
   };
   return (
     <>
-      <Menu
-        MenuHandler={
-          <MenuHandler
-            brand_list={brands}
-            checked={checked}
-            sendChecked={(e: number[]) => setChecked(e)}
-            setMax={(e: number) => setMayor(e)}
-            setMin={(e: number) => setMinor(e)}
-            setInStock={(e: boolean) => setInStock(e)}
-            inStock={inStock}
-            price_range={price_range}
-            PRODUCT_CATEGORY={categories}
-          />
-        }
+      <Products
+        brands={brands}
+        categories={categories}
+        checked={checked}
+        setChecked={setChecked}
+        setMayor={setMayor}
+        setMinor={setMinor}
+        setInStock={setInStock}
+        inStock={inStock}
+        price_range={price_range}
+        currentPage={currentPage}
         title={PRODUCT_ENV.TITLE.BASS}
-      >
-        <DisplayProducts
-          list={products}
-          lastPage={lastPage}
-          currentPage={currentPage}
-          totalProducts={total}
-          product={"GUITAR"}
-          category={"0000"}
-          onPageChange={handlePageChange}
-        />
-      </Menu>
+        products={products}
+        lastPage={lastPage}
+        total={total}
+        handlePageChange={handlePageChange}
+        loadingBrands={loadingBrands}
+        loadingPriceRange={loadingPriceRange}
+        loadingProducts={loadingProducts}
+      />
     </>
   );
 };

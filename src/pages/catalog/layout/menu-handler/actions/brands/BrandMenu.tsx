@@ -1,5 +1,5 @@
 import { useMenu } from "../../../../../../hooks/useMenu";
-import type { BrandMenuProps } from "../../../ts/props";
+import type { BrandMenuProps } from "../../../ts/layout-props";
 import style from "./BrandMenu.module.scss";
 
 export const BrandMenu = ({

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { PriceRangeMenuProps } from "../../../ts/props";
+import type { PriceRangeMenuProps } from "../../../ts/layout-props";
 import style from "./PriceRangeMenu.module.scss";
 
 export const PriceRangeMenu = ({

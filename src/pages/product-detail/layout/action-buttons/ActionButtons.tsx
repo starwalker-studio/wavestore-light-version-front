@@ -1,4 +1,4 @@
-import { faCheck, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { WavestoreProduct } from "../../../../api/products/product.interface";
 import { useCartStore } from "../../../../api/store/cart.store";
@@ -19,7 +19,7 @@ export const ActionButtons = ({ item }: ActionButtonsProps) => {
             </span>
             In Stock!
           </strong>
-          <p>(Hurry, limited quantity available)</p>
+          <p>{`(Hurry, limited quantity available)`}</p>
         </div>
       ) : (
         <div className={style.product_avail}>
@@ -36,16 +36,6 @@ export const ActionButtons = ({ item }: ActionButtonsProps) => {
             }}
           >
             Add to Cart
-          </button>
-        </div>
-      </div>
-      <div className={style.product_action_wishlist}>
-        <div className={style.product_button_wishlist}>
-          <button>
-            <span>
-              <FontAwesomeIcon icon={faHeart} size="1x" />
-            </span>
-            Add to Wish List
           </button>
         </div>
       </div>

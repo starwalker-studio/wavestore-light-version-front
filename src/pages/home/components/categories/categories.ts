@@ -16,7 +16,7 @@ export const CAT_INDEX: ICAT_INDEX[] = [
     id: 2,
     img: "/img/categories/PBassAPR3SB.webp",
     label: "Bass",
-    link: "/shop/bass",
+    link: "/shop/basses",
   },
 
   {
@@ -29,6 +29,6 @@ export const CAT_INDEX: ICAT_INDEX[] = [
     id: 4,
     img: "/img/categories/M4WP006.webp",
     label: "Cables, Cases & More",
-    link: "/shop/accesories",
+    link: "/shop/accessories",
   },
 ];

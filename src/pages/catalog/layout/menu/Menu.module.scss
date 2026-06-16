@@ -1,3 +1,5 @@
+@use "/src/scss/utils/" as *;
+
 .item_page {
   display: flexbox;
   margin: 0 auto;
@@ -12,7 +14,6 @@
   border-right: 1px solid #d4d4d4;
   max-width: 400px;
   min-width: 220px;
-  width: 10%;
 }
 
 .catalog_title {
@@ -24,6 +25,7 @@
   align-items: center;
   justify-content: start;
   padding: 18px 0 18px;
+  margin-bottom: 10px;
 
   p {
     margin: 0;
@@ -44,5 +46,6 @@
 }
 
 .category_flex {
-  display: flex;
+  display: grid;
+  grid-template-columns: 250px 1fr;
 }

@@ -9,9 +9,9 @@ export const ProductRoutes = () => {
     <>
       <Routes>
         <Route path="/guitars" element={<GuitarProducts />} />
-        <Route path="/bass" element={<BassProducts />} />
+        <Route path="/basses" element={<BassProducts />} />
         <Route path="/drums" element={<DrumsProducts />} />
-        <Route path="/accesories" element={<AccesoriesProducts />} />
+        <Route path="/accessories" element={<AccesoriesProducts />} />
       </Routes>
     </>
   );

@@ -20,6 +20,9 @@ export const ProductMedia = ({ gallery }: ProductMediaProps) => {
   return (
     <>
       <div className={style.product_media}>
+        <div className={style.product_image_col}>
+          {urlSelected && <img src={urlSelected} alt="" />}
+        </div>
         <div className={style.row_items}>
           {gallery.map(({ url, id }) => (
             <div
@@ -32,9 +35,6 @@ export const ProductMedia = ({ gallery }: ProductMediaProps) => {
               <img src={url} alt="" />
             </div>
           ))}
-        </div>
-        <div className={style.product_image_col}>
-          {urlSelected && <img src={urlSelected} alt="" />}
         </div>
       </div>
     </>

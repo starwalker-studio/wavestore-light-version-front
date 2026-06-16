@@ -1,4 +1,4 @@
-import type { InStockMenuProps } from "../../../ts/props";
+import type { InStockMenuProps } from "../../../ts/layout-props";
 import style from "./InStockMenu.module.scss";
 
 export const InStockMenu = ({ setInStock, inStock }: InStockMenuProps) => {

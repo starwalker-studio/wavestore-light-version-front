@@ -1,6 +1,22 @@
+@use "/src/scss/utils/" as *;
+
 .products {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+}
+
+.grid_products {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: start;
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .top {
@@ -15,8 +31,15 @@
   p {
     margin: 0;
     font-size: 21px;
-    font-weight: 780;
+    font-weight: 700;
   }
+}
+
+.loading_spinner {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pagination_total {
