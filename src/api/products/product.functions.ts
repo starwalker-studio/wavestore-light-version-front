@@ -35,8 +35,8 @@ export async function searchProductByFilter(
   }
 
   const response = await fetch(
-    // `${SERVER_ENV.SERVER_HOST_DEV}${SERVER_ENV.PRODUCT}/?${queryParams?.toString()}`,
-    `${SERVER_ENV.SERVER_HOST_PROD}${SERVER_ENV.PRODUCT}?${queryParams?.toString()}`,
+    `${SERVER_ENV.SERVER_HOST_DEV}${SERVER_ENV.PRODUCT}/?${queryParams?.toString()}`,
+    // `${SERVER_ENV.SERVER_HOST_PROD}${SERVER_ENV.PRODUCT}?${queryParams?.toString()}`,
   );
 
   const data: PaginatedResponse<WavestoreProduct> = await response.json();
@@ -46,8 +46,8 @@ export async function searchProductByFilter(
 
 export async function searchProductBrandsByCategory(id_category: number) {
   const response = await fetch(
-    // `${SERVER_ENV.SERVER_HOST_DEV}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_BRANDS_BY_CATEGORY}${id_category}`,
-    `${SERVER_ENV.SERVER_HOST_PROD}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_BRANDS_BY_CATEGORY}${id_category}`,
+    `${SERVER_ENV.SERVER_HOST_DEV}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_BRANDS_BY_CATEGORY}${id_category}`,
+    // `${SERVER_ENV.SERVER_HOST_PROD}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_BRANDS_BY_CATEGORY}${id_category}`,
   );
 
   const data: Brands[] = await response.json();
@@ -57,8 +57,8 @@ export async function searchProductBrandsByCategory(id_category: number) {
 
 export async function searchProductPriceRange() {
   const response = await fetch(
-    // `${SERVER_ENV.SERVER_HOST_DEV}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_PRICE_RANGE}`,
-    `${SERVER_ENV.SERVER_HOST_PROD}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_PRICE_RANGE}`,
+    `${SERVER_ENV.SERVER_HOST_DEV}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_PRICE_RANGE}`,
+    // `${SERVER_ENV.SERVER_HOST_PROD}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_PRICE_RANGE}`,
   );
 
   const data: PriceRange = await response.json();
@@ -68,8 +68,8 @@ export async function searchProductPriceRange() {
 
 export async function searchProductCategories() {
   const response = await fetch(
-    // `${SERVER_ENV.SERVER_HOST_DEV}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_CATEGORY}`,
-    `${SERVER_ENV.SERVER_HOST_PROD}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_CATEGORY}`,
+    `${SERVER_ENV.SERVER_HOST_DEV}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_CATEGORY}`,
+    // `${SERVER_ENV.SERVER_HOST_PROD}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_CATEGORY}`,
   );
 
   const data: WavestoreCategory[] = await response.json();
@@ -79,8 +79,8 @@ export async function searchProductCategories() {
 
 export async function searchProductDetail(item_ID: string) {
   const response = await fetch(
-    // `${SERVER_ENV.SERVER_HOST_DEV}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_DETAIL}${item_ID}`,
-    `${SERVER_ENV.SERVER_HOST_PROD}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_DETAIL}${item_ID}`,
+    `${SERVER_ENV.SERVER_HOST_DEV}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_DETAIL}${item_ID}`,
+    // `${SERVER_ENV.SERVER_HOST_PROD}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_DETAIL}${item_ID}`,
   );
 
   const data: WavestoreProduct = await response.json();
@@ -90,8 +90,8 @@ export async function searchProductDetail(item_ID: string) {
 
 export async function searchProductGallery(item_ID: string) {
   const response = await fetch(
-    // `${SERVER_ENV.SERVER_HOST_DEV}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_GALLERY}${item_ID}`,
-    `${SERVER_ENV.SERVER_HOST_PROD}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_GALLERY}${item_ID}`,
+    `${SERVER_ENV.SERVER_HOST_DEV}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_GALLERY}${item_ID}`,
+    // `${SERVER_ENV.SERVER_HOST_PROD}${SERVER_ENV.PRODUCT}${SERVER_ENV.END_POINTS.PRODUCT_GALLERY}${item_ID}`,
   );
 
   const data: WavestoreProductImage[] = await response.json();
